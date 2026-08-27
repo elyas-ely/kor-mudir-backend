@@ -1,0 +1,33 @@
+{
+  "name": "afghan-bazar-backend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun --hot src/index.ts",
+    "start": "bun src/index.ts",
+    "seed": "bun src/db/seed.ts",
+    "gen": "drizzle-kit generate",
+    "mig": "drizzle-kit migrate",
+    "stud": "drizzle-kit studio",
+    "lint": "biome lint .",
+    "format": "biome format --write ."
+  },
+  "dependencies": {
+    "@better-auth/expo": "^1.7.1",
+    "aws4fetch": "^1.0.20",
+    "better-auth": "^1.7.1",
+    "drizzle-orm": "^0.44.7",
+    "drizzle-zod": "^0.8.3",
+    "hono": "^4.13.5",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@faker-js/faker": "^10.6.0",
+    "@types/bun": "latest",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.30.6",
+    "typescript": "^5.9.3"
+  }
+}

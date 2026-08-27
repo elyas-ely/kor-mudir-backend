@@ -1,0 +1,9 @@
+node_modules
+.git
+.env
+*.log
+Dockerfile
+.dockerignore
+biome.json
+tsconfig.json
+CLAUDE.md
