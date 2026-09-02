@@ -1,6 +1,6 @@
 {
-  "id": "46840942-ca69-468e-9de9-930eb45bbb08",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "0dc4d96e-bfa2-487b-80f5-f894ffada198",
+  "prevId": "46840942-ca69-468e-9de9-930eb45bbb08",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -272,8 +272,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "agency": {
-          "name": "agency",
+        "username": {
+          "name": "username",
           "type": "text",
           "primaryKey": false,
           "notNull": false

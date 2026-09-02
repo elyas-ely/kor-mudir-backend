@@ -1,10 +1,3 @@
-CREATE TYPE "public"."user_role" AS ENUM('admin', 'user');--> statement-breakpoint
-CREATE TYPE "public"."contact_kind" AS ENUM('owner', 'worker', 'friend');--> statement-breakpoint
-CREATE TYPE "public"."worker_role" AS ENUM('engineer', 'electrician', 'plumber', 'housekeeper', 'painter', 'carpenter', 'gardener', 'security', 'other');--> statement-breakpoint
-CREATE TYPE "public"."property_currency" AS ENUM('afghani', 'usd', 'rupee');--> statement-breakpoint
-CREATE TYPE "public"."property_purpose" AS ENUM('sale', 'rent', 'mortgage');--> statement-breakpoint
-CREATE TYPE "public"."property_size_unit" AS ENUM('sqm', 'sqft');--> statement-breakpoint
-CREATE TYPE "public"."property_type" AS ENUM('house', 'apartment', 'villa', 'land', 'garden', 'shop', 'office', 'warehouse', 'building');--> statement-breakpoint
 CREATE TABLE "account" (
 	"id" text PRIMARY KEY NOT NULL,
 	"issuer" text NOT NULL,

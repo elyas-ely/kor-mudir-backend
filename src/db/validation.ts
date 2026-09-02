@@ -16,7 +16,6 @@ export const googleAuthSchema = z.object({
 
 export const updateProfileSchema = z.object({
   name: z.string().trim().min(1, 'name is required').optional(),
-  agency: z.string().trim().optional(),
 });
 
 // properties are the only resource with images today — the R2 key is always

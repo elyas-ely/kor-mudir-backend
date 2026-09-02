@@ -13,7 +13,6 @@ export const user = pgTable('user', {
   email: text('email').notNull().unique(),
   emailVerified: boolean('email_verified').notNull().default(false),
   image: text('image'),
-  agency: text('agency'),
   role: userRoleEnum('role').notNull().default('user'),
   // every new user gets a 1-month free trial from the moment their account
   // is created; better-auth also sets this via its own defaultValue (see
