@@ -5,6 +5,7 @@ import { bearer } from 'better-auth/plugins';
 import { db } from '../db';
 import * as schema from '../db/schema';
 import { env } from './env';
+import { trialEndsAtFrom } from './trial';
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
@@ -30,11 +31,11 @@ export const auth = betterAuth({
         defaultValue: 'user',
         input: false,
       },
-      // 1-month free trial starting at sign-up; not client-settable.
+      // 5-month free trial starting at sign-up; not client-settable.
       trialEndsAt: {
         type: 'date',
         required: true,
-        defaultValue: () => new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+        defaultValue: () => trialEndsAtFrom(),
         input: false,
       },
     },

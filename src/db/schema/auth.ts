@@ -1,11 +1,10 @@
 import { relations } from 'drizzle-orm';
 import { boolean, index, pgEnum, pgTable, text, timestamp, unique } from 'drizzle-orm/pg-core';
+import { trialEndsAtFrom } from '../../lib/trial';
 import { contacts } from './contacts';
 import { properties } from './properties';
 
 export const userRoleEnum = pgEnum('user_role', ['admin', 'user']);
-
-const TRIAL_DURATION_MS = 30 * 24 * 60 * 60 * 1000;
 
 export const user = pgTable('user', {
   id: text('id').primaryKey(),
@@ -14,13 +13,13 @@ export const user = pgTable('user', {
   emailVerified: boolean('email_verified').notNull().default(false),
   image: text('image'),
   role: userRoleEnum('role').notNull().default('user'),
-  // every new user gets a 1-month free trial from the moment their account
-  // is created; better-auth also sets this via its own defaultValue (see
-  // lib/auth.ts additionalFields) — the column default here is the fallback
-  // for any row inserted outside that path.
+  // every new user gets a 5-month free trial from the moment their account
+  // is created (see lib/trial.ts); better-auth also sets this via its own
+  // defaultValue (see lib/auth.ts additionalFields) — the column default here
+  // is the fallback for any row inserted outside that path.
   trialEndsAt: timestamp('trial_ends_at', { withTimezone: true })
     .notNull()
-    .$defaultFn(() => new Date(Date.now() + TRIAL_DURATION_MS)),
+    .$defaultFn(() => trialEndsAtFrom()),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true })
     .notNull()
